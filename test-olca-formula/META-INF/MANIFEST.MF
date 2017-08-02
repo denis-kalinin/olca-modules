@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test-ocla-formula
+Bundle-SymbolicName: org.opencla.ocla-formula.tests
+Bundle-Version: 1.7.0.qualifier
+Fragment-Host: org.openlca.olca-formula
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.junit

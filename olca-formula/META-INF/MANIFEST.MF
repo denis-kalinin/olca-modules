@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: olca-formula
+Bundle-SymbolicName: org.openlca.olca-formula
+Bundle-Version: 1.7.0.qualifier
+Export-Package: org.openlca.expressions;version="1.7.0",
+ org.openlca.expressions.functions;version="1.7.0"
