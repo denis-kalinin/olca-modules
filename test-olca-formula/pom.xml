@@ -8,7 +8,7 @@
 		<artifactId>olca-modules</artifactId>
 		<version>1.7.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.opencla.ocla-formula.tests</artifactId>
+	<artifactId>org.openlca.olca-formula.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 	
 

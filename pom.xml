@@ -58,10 +58,10 @@
 	<modules>
 		<module>olca-formula</module>
 		<module>test-olca-formula</module>
-		<!--
-		
-		<module>olca-cloud</module>
 		<module>olca-core</module>
+		<module>test-olca-core</module>
+		<!--
+		<module>olca-cloud</module>
 		<module>olca-ecospold-1</module>
 		<module>olca-ecospold-2</module>
 		<module>olca-geo</module>

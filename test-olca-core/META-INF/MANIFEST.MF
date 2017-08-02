@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: org.openlca.olca-core.tests
+Bundle-Version: 1.7.0.qualifier
+Fragment-Host: org.openlca.olca-core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.google.common.base;version="21.0.0",
+ org.eclipse.persistence.exceptions,
+ org.hamcrest,
+ org.junit,
+ org.junit.experimental.theories,
+ org.junit.runner
