@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test-olca-simapro-csv
+Bundle-SymbolicName: test-olca-simapro-csv
+Bundle-Version: 1.7.0.qualifier
+Fragment-Host: org.openlca.olca-simapro-csv;bundle-version="1.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.openlca.simapro.csv
+Import-Package: org.junit

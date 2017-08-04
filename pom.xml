@@ -58,17 +58,24 @@
 	<modules>
 		<module>olca-formula</module>
 		<module>test-olca-formula</module>
+		
 		<module>olca-core</module>
-		<module>test-olca-core</module>
+		<!--test-olca-core -->
+		
+		<module>olca-jsonld</module>
+		<!-- test-olca-jsonld -->
+		
+		<module>olca-ilcd</module>
+		<module>test-olca-ilcd</module>
+		
+		<module>olca-simapro-csv</module>
+		<module>test-olca-simapro-csv</module>
 		<!--
 		<module>olca-cloud</module>
 		<module>olca-ecospold-1</module>
 		<module>olca-ecospold-2</module>
 		<module>olca-geo</module>
-		<module>olca-ilcd</module>
 		<module>olca-io</module>
-		<module>olca-jsonld</module>
-		<module>olca-simapro-csv</module>
 		-->
 	</modules>
 
@@ -112,7 +119,7 @@
 					<pomDependencies>consider</pomDependencies>
 					<target>
 						<artifact>
-						<groupId>org.openlca</groupId>
+							<groupId>org.openlca</groupId>
 							<artifactId>olca-platform</artifactId>
 							<version>0.0.1-SNAPSHOT</version>
 						</artifact>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: olca-jsonld
+Bundle-SymbolicName: org.openlca.olca-jsonld
+Bundle-Version: 1.7.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.google.common.base,
+ com.google.gson,
+ gnu.trove.map.hash,
+ javax.persistence,
+ org.apache.commons.math3.util,
+ org.openlca.core.database,
+ org.openlca.core.model,
+ org.openlca.core.model.descriptors,
+ org.openlca.util,
+ org.slf4j

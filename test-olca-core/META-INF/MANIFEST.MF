@@ -3,11 +3,16 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Tests
 Bundle-SymbolicName: org.openlca.olca-core.tests
 Bundle-Version: 1.7.0.qualifier
-Fragment-Host: org.openlca.olca-core
+Fragment-Host: org.openlca.olca-core;bundle-version="1.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.common.base;version="21.0.0",
+Import-Package: com.google.common.base,
  org.eclipse.persistence.exceptions,
- org.hamcrest,
  org.junit,
  org.junit.experimental.theories,
  org.junit.runner
+Bundle-ClassPath: .,
+ META-INF/lib/org.eclipse.persistence.jpa-2.6.4.jar,
+ META-INF/lib/org.eclipse.persistence.asm-2.6.4.jar,
+ META-INF/lib/org.eclipse.persistence.antlr-2.6.4.jar,
+ META-INF/lib/org.eclipse.persistence.core-2.6.4.jar,
+ META-INF/lib/org.eclipse.persistence.jpa.jpql-2.6.4.jar

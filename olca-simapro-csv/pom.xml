@@ -5,19 +5,9 @@
 	<parent>
 		<groupId>org.openlca</groupId>
 		<artifactId>olca-modules</artifactId>
-		<version>1.7.0</version>
+		<version>1.7.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>olca-simapro-csv</artifactId>
-	<packaging>jar</packaging>
-
-	<dependencies>
-
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>21.0</version>
-		</dependency>
-
-	</dependencies>
+	<artifactId>org.openlca.olca-simapro-csv</artifactId>
+	<packaging>eclipse-plugin</packaging>
 
 </project>

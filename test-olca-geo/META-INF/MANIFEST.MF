@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: org.openlca.olca-geo.tests
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: org.openlca.olca-geo;bundle-version="1.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.geotools.data,
+ org.geotools.geometry.jts,
+ org.junit,
+ org.openlca.core.database.derby
