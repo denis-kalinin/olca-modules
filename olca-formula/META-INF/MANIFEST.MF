@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: olca-formula
+Bundle-SymbolicName: org.openlca.olca-formula
+Bundle-Version: 1.7.0.qualifier
+Export-Package: org.openlca.expressions,
+ org.openlca.expressions.functions
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.junit;resolution:=optional

@@ -5,9 +5,9 @@
 	<parent>
 		<groupId>org.openlca</groupId>
 		<artifactId>olca-modules</artifactId>
-		<version>1.7.0</version>
+		<version>1.7.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>olca-ecospold-1</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>org.openlca.ecospold</artifactId>
+	<packaging>eclipse-plugin</packaging>
 
 </project>

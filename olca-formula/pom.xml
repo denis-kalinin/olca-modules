@@ -5,11 +5,23 @@
 	<parent>
 		<groupId>org.openlca</groupId>
 		<artifactId>olca-modules</artifactId>
-		<version>1.7.0</version>
+		<version>1.7.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>olca-formula</artifactId>
-	<packaging>jar</packaging>
-	<name>${project.groupId}:${project.artifactId}</name>
+	<artifactId>org.openlca.olca-formula</artifactId>
+	<packaging>eclipse-plugin</packaging>
 	<description>The formula interpreter of the openLCA core modules.</description>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

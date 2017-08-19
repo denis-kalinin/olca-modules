@@ -5,19 +5,22 @@
 	<parent>
 		<groupId>org.openlca</groupId>
 		<artifactId>olca-modules</artifactId>
-		<version>1.7.0</version>
+		<version>1.7.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>olca-simapro-csv</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>org.openlca.olca-simapro-csv</artifactId>
+	<packaging>eclipse-plugin</packaging>
 
-	<dependencies>
-
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>21.0</version>
-		</dependency>
-
-	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: olca-ecospold-2
+Bundle-SymbolicName: org.openlca.olca-ecospold-2
+Bundle-Version: 1.7.0.qualifier
+Export-Package: spold2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.junit;resolution:=optional

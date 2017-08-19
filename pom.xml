@@ -5,14 +5,17 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho-version>1.0.0</tycho-version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.openlca</groupId>
 	<artifactId>olca-modules</artifactId>
-	<version>1.7.0</version>
+	<version>1.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>${project.groupId}:${project.artifactId}</name>
+	<name>POM for OpenLCA core feature</name>
 	<url>http://www.openlca.org/</url>
 
 	<issueManagement>
@@ -55,58 +58,92 @@
 	</ciManagement>
 
 	<modules>
-		<module>olca-cloud</module>
+		<module>olca-formula</module>
 		<module>olca-core</module>
+		<module>olca-ilcd</module>
 		<module>olca-ecospold-1</module>
 		<module>olca-ecospold-2</module>
-		<module>olca-formula</module>
-		<module>olca-geo</module>
-		<module>olca-ilcd</module>
-		<module>olca-io</module>
 		<module>olca-jsonld</module>
 		<module>olca-simapro-csv</module>
+		<module>olca-io</module>
+		<module>olca-cloud</module>
+		<module>olca-geo</module>
+		<module>olca-core-feature</module>
+		<!-- 
+		<module>test-olca-formula</module>
+		<module>test-olca-ilcd</module>
+		<module>test-olca-simapro-csv</module>
+		 -->
 	</modules>
 
 	<dependencies>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.25</version>
-		</dependency>
-
+		<!-- 
+				This one is needed for plain unit-tests with maven-surefire-plugin,
+			because OSGi-fied version of "org.junit" from target platform
+			would cause classloader issues with @Test(expect = ...) annotation
+				Also, because src/test/java is excluded from <project>/build.properties,
+			but presents in <project>/.classpath - our plug-ins META-INF.MF contains:
+			
+			Import-Package: org.junit;resolution:=optional
+			
+			- thus in Eclipse IDE project is not red (i.e. doesn't have errors), if "Maven Nature" is disabled 
+		-->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.25</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-			<scope>test</scope>
-		</dependency>
-
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.1</version>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- pomDependencies>consider</pomDependencies -->
+					<target>
+						<artifact>
+							<groupId>org.openlca.releng</groupId>
+							<artifactId>olca-target-runtime</artifactId>
+							<version>0.0.1-SNAPSHOT</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>win32</os><ws>win32</ws><arch>x86</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<includeAllDependencies>false</includeAllDependencies>
 				</configuration>
 			</plugin>
 			<!-- TODO enables this (maybe via a specific task) when we finally publish to Maven central 
@@ -141,6 +178,72 @@
 			</plugin>
 			 -->
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho-version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.20</version>
+					<executions>
+						<execution>
+							<id>test</id>
+							<phase>test</phase>
+							<goals>
+								<goal>test</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.6.2</version>
+					<executions>
+						<execution>
+							<id>compiletests</id>
+							<phase>test-compile</phase>
+							<goals>
+								<goal>testCompile</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+					<configuration>
+						<!-- we don't want to deploy artifacts before all modules compiles -->
+						<deployAtEnd>true</deployAtEnd>
+					</configuration>
+				</plugin>
+				<plugin>
+					<!-- run mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=2.5.0-SNAPSHOT -->
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-versions-plugin</artifactId>
+					<version>${tycho-version}</version>
+				</plugin> 
+			</plugins>
+		</pluginManagement>
 	</build>
-
+	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>olca-repo</id>
+			<name>OpenLCA Nexus at OpenShift</name>
+			<url>https://nexus-olca.a3c1.starter-us-west-1.openshiftapps.com/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<repositories>
+		<repository>
+			<id>olca-public-repo</id>
+			<name>OpenLCA Nexus at OpenShift</name>
+			<url>https://nexus-olca.a3c1.starter-us-west-1.openshiftapps.com/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
 </project>

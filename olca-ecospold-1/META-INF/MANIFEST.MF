@@ -2,9 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EcoSpold API
 Bundle-SymbolicName: org.openlca.ecospold
-Bundle-Version: 1.3.0
+Bundle-Version: 1.7.0.qualifier
 Bundle-Vendor: openLCA.org
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.openlca.ecospold,
  org.openlca.ecospold.io
-Require-Bundle: org.junit4;bundle-version="4.8.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
