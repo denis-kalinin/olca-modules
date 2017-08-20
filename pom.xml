@@ -97,6 +97,7 @@
 	</dependencies>
 
 	<build>
+		<defaultGoal>deploy</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -236,14 +237,7 @@
 		<snapshotRepository>
 			<id>olca-repo</id>
 			<name>OpenLCA Nexus at OpenShift</name>
-			<url>https://nexus-olca.a3c1.starter-us-west-1.openshiftapps.com/nexus/content/repositories/snapshots/</url>
+			<url>http://nexus-olca.a3c1.starter-us-west-1.openshiftapps.com/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-	<repositories>
-		<repository>
-			<id>olca-public-repo</id>
-			<name>OpenLCA Nexus at OpenShift</name>
-			<url>https://nexus-olca.a3c1.starter-us-west-1.openshiftapps.com/nexus/content/groups/public/</url>
-		</repository>
-	</repositories>
 </project>
