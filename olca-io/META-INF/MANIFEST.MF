@@ -3,9 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: olca-io
 Bundle-SymbolicName: org.openlca.olca-io
 Bundle-Version: 1.7.0.qualifier
-Export-Package: examples,
- org.openlca.io,
- org.openlca.io.ecospold1,
+Export-Package: org.openlca.io,
  org.openlca.io.ecospold1.input,
  org.openlca.io.ecospold1.output,
  org.openlca.io.ecospold2,
@@ -55,7 +53,6 @@ Import-Package: com.google.common.base,
  org.openlca.ecospold,
  org.openlca.ecospold.io,
  org.openlca.expressions,
- org.openlca.ilcd,
  org.openlca.ilcd.commons,
  org.openlca.ilcd.contacts,
  org.openlca.ilcd.flowproperties,
