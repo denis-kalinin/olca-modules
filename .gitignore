@@ -1,9 +1,6 @@
 # IDE files and folders
 **/.idea/
 *.iml
-**/.settings/
-.classpath
-.project
 
 # generated files
 **/apidocs/
